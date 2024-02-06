@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+void insert_valid(stack<int>&s,int num){
+    //base case
+    if(s.empty()) {
+        s.push(num);
+        return;
+    }
+    int x=s.top();
+    if(s.top()>num) s.pop();
+    insert_valid(s,x);
+    
+    s.push(x);
+
+}
+
+void sort_stack(stack<int> &s){
+    if(s.empty()) return;
+    
+    int x=s.top();
+    s.pop();
+    
+    sort_stack(s);
+    
+    insert_valid(s,x);
+    
+}
+
+void print_stack(stack<int>& s){
+        while(!s.empty()){
+            cout<<s.top()<<" ";
+            s.pop();
+        }
+        cout<<endl;
+    }    
+ 
+int main(){
+    stack<int> l ;
+    l.push(333);
+    l.push(9);
+    l.push(92);
+    l.push(0);
+    sort_stack(l);
+    print_stack(l);
+    return 0;
+}

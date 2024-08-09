@@ -13,7 +13,7 @@ public:
     }
 };
 
-bool BTSameOrNot(node*l, node*s){
+bool BinaryTreeSameOrNot(node*l, node*s){
     if(l==nullptr && s==nullptr) return true;// dono null hoagye to obv equal
     
     if (l == nullptr || s == nullptr) return false;// dono mai se koi 1 null hogaya toh obv nhi hai equal
@@ -36,7 +36,7 @@ int main() {
     m->left->left = new node(4);
     m->left->right = new node(55);
 
-    if (BTSameOrNot(r,m)) cout <<"both tree are similar"<<endl;
+    if (BinaryTreeSameOrNot(r,m)) cout <<"both tree are similar"<<endl;
     else cout<<"both tree are not similar"<<endl;
 
     return 0;
